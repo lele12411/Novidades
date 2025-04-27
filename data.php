@@ -1,13 +1,31 @@
 <?php
-$texto = "A influência da inteligência artificial (IA) na indústria de anime e mangá está se expandindo rapidamente,
-com várias iniciativas sendo implementadas para explorar suas capacidades.
-O estúdio OLM Digital, conhecido por séries como Pokémon e Berserk,
-planeja incorporar IA generativa na produção de animes.
-O representante do estúdio, Tatsuo Yotsukura, 
-mencionou que a IA pode se tornar um novo padrão na indústria,
-assim como o 3D se tornou no passado.
-Ele está supervisionando um projeto chamado ANIMINS,
-que visa estudar a implementação da IA na produção de animes.";
+// Dados para conectar ao banco
+$servername = "localhost";
+$username = "root"; // Coloque seu usuário do MySQL aqui
+$password = "";     // Coloque sua senha do MySQL aqui, se tiver
+$dbname = "novidades_db";
 
-echo $texto;
+// Criar conexão
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar conexão
+if ($conn->connect_error) {
+    die("Falha na conexão: " . $conn->connect_error);
+}
+
+// Buscar a novidade mais recente
+$sql = "SELECT titulo, conteudo FROM novidades ORDER BY data_publicacao DESC LIMIT 1";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Mostrar as novidades
+    while($row = $result->fetch_assoc()) {
+        echo "<h2 class='texto'>" . htmlspecialchars($row["titulo"]) . "</h2>";
+        echo "<p class='texto'>" . nl2br(htmlspecialchars($row["conteudo"])) . "</p>";
+    }
+} else {
+    echo "<p class='texto'>Nenhuma novidade disponível.</p>";
+}
+
+$conn->close();
 ?>
