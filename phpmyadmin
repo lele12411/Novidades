@@ -1,0 +1,67 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 28/04/2025 às 01:35
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `novidades_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `novidades`
+--
+
+CREATE TABLE `novidades` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(255) NOT NULL,
+  `conteudo` text NOT NULL,
+  `data_publicacao` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `novidades`
+--
+
+INSERT INTO `novidades` (`id`, `titulo`, `conteudo`, `data_publicacao`) VALUES
+(1, ' Inteligência Artificial na Indústria de Anime e Mangá', 'A influência da inteligência artificial (IA) na indústria de anime e mangá está se expandindo rapidamente,\r\ncom várias iniciativas sendo implementadas para explorar suas capacidades.\r\nO estúdio OLM Digital, conhecido por séries como Pokémon e Berserk,\r\nplaneja incorporar IA generativa na produção de animes.\r\nO representante do estúdio, Tatsuo Yotsukura, \r\nmencionou que a IA pode se tornar um novo padrão na indústria,\r\nassim como o 3D se tornou no passado.\r\nEle está supervisionando um projeto chamado ANIMINS,\r\nque visa estudar a implementação da IA na produção de animes.', '2025-04-27 23:08:23');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices de tabela `novidades`
+--
+ALTER TABLE `novidades`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `novidades`
+--
+ALTER TABLE `novidades`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
