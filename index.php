@@ -9,6 +9,7 @@
 <body>
     <h1 class="titulo">Novidades</h1>
     <div class="container">
-        <h2 class="texto">Inteligência Artificial na Indústria de Anime e Mangá</h2>
-        <p class="texto">
-   
+        <?php include 'data.php'; ?>
+    </div>
+</body>
+</html>
